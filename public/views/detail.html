@@ -1,0 +1,16 @@
+<a href="#/">
+  <span class="glyphicon glyphicon-home"></span>
+</a>
+<h3>Detail</h3>
+<form name="myForm" role="search">
+  <div class="form-group" ng-repeat="f in fields | filter:notToBeHiddenFilter">
+    <label>{{ f | titleCase }}</label>
+    <input type="text" name="{{f}}" ng-model="resource[f]" class="form-control">
+  </div>
+  <br>
+  <a href="#/{{resourceName}}" class="btn btn-default btn-sm">Cancel</a>
+  <button ng-click="save()"
+          class="btn btn-primary btn-sm">Save</button>
+  <button ng-click="destroy()"
+          ng-show="resource.id" class="btn btn-danger btn-sm">Delete</button>
+</form>
